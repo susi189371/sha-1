@@ -69,7 +69,7 @@
 .cYnvYE {
   top: 20% !important;
 }
-ul {
+.container-top {
   margin-top: 5% !important;
 }
 .top-header {
@@ -85,7 +85,7 @@ ul {
   width: 100%;
   display: block;
   transition: top 0.3s;
-  z-index: 99;
+  /* z-index: 99; */
   display: flex;
   padding: 0 15px;
 }
@@ -130,13 +130,66 @@ ul {
   text-align: center;
   display: inline-flex;
 }
-.cart-position{
+.cart-position {
   margin: auto !important;
   float: right;
   width: 20% !important;
 }
+.btn-close-modal {
+  float: right;
+  background-color: transparent;
+  border: none;
+  color: #6e7679;
+}
+.contacts {
+  width: 300px;
+  margin: 0 auto;
+}
+.search-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.contacts-list {
+  padding: 0;
+  width: 100%;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px dotted grey;
+}
+
+.contact-image {
+  margin: 5px;
+}
+
+.contact-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contact-number {
+  font-size: 18px;
+  color: grey;
+}
+
+.cgsWOo{
+  width: 100% !important;
+}
+
+.kinYje{
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
 @media (min-width: 320px) and (max-width: 575.98px) {
-  ul {
+  .container-top {
     margin-top: 29% !important;
     padding: 0;
   }
