@@ -10,6 +10,8 @@
     "react-headroom": "^3.0.0",
     "react-live-search": "^1.0.2",
     "react-modal": "^3.11.2",
+    "react-native-calendar-strip": "^2.0.3",
+    "react-native-slideable-calendar-strip": "^0.4.0",
     "react-scripts": "3.2.0",
     "react-star-ratings": "^2.3.0",
     "reactstrap": "^8.4.1",

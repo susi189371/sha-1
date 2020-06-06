@@ -33,14 +33,45 @@ class App extends Component {
     super();
     this.state = {
       showModal: false,
+      show:false,
       value: '',
-      data: [
+      search: [
         { label: 'google', value: 1 },
         { label: 'work', value: 2 },
         { label: 'great', value: 3 },
         { label: 'bar', value: 4 },
         { label: 'foo', value: 5 }
       ],
+      data: [
+        {
+          id: '1',
+          url: "https://i.pinimg.com/236x/cc/d2/63/ccd2632a3dfcee04c32ee2bee8655502--senin-boxes.jpg",
+          name: "Roasted Chicken with Scramble Egg1",
+          score: 4,
+          price: "20.000",
+        },
+        {
+          id: '2',
+          url: "https://i.pinimg.com/236x/07/08/42/0708428bfac5bc7ecb466ca3f0fa7c92.jpg",
+          name: "Roasted Chicken with Scramble Egg2",
+          score: 4,
+          price: "20.000",
+        },
+        {
+          id: '3',
+          url: "https://pbs.twimg.com/media/C6NTwvGU0AAZOnc.jpg",
+          name: "Roasted Chicken with Scramble Egg3",
+          score: 4.5,
+          price: "20.000",
+        },
+        {
+          id: '4',
+          url: "https://selular.id/wp-content/uploads/2016/09/kulina-box-1200x900.jpg",
+          name: "Roasted Chicken with Scramble Egg4",
+          score: 2.1,
+          price: "20.000",
+        },
+      ]
     };
   }
 
@@ -65,33 +96,6 @@ class App extends Component {
   handleOpenModal = this.handleOpenModal.bind(this);
   handleCloseModal = this.handleCloseModal.bind(this);
 
-  data = [
-    {
-      url: "https://i.pinimg.com/236x/cc/d2/63/ccd2632a3dfcee04c32ee2bee8655502--senin-boxes.jpg",
-      name: "Roasted Chicken with Scramble Egg1",
-      score: 4,
-      price: "20.000",
-    },
-    {
-      url: "https://i.pinimg.com/236x/07/08/42/0708428bfac5bc7ecb466ca3f0fa7c92.jpg",
-      name: "Roasted Chicken with Scramble Egg2",
-      score: 4,
-      price: "20.000",
-    },
-    {
-      url: "https://pbs.twimg.com/media/C6NTwvGU0AAZOnc.jpg",
-      name: "Roasted Chicken with Scramble Egg3",
-      score: 4.5,
-      price: "20.000",
-    },
-    {
-      url: "https://selular.id/wp-content/uploads/2016/09/kulina-box-1200x900.jpg",
-      name: "Roasted Chicken with Scramble Egg4",
-      score: 2.1,
-      price: "20.000",
-    },
-  ]
-
   datas = [{ name: 'Jhon', age: 28, city: 'HO' },
   { name: 'Onhj', age: 82, city: 'HN' },
   { name: 'Nohj', age: 41, city: 'IT' }
@@ -113,10 +117,10 @@ class App extends Component {
           <a href="#dinner" className="col-md-6">Dinner</a>
         </div>
         <div className="conta">
-          <ul className="container-top">
-            {this.data.map(function (img, x) {
-              return <li className="row m-0 mb-2" key={x}>
-                <Card key={x}>
+        <ul className="container-top">
+            {this.state.data.map(img => (
+              <li key={img.id}>
+                <Card >
                   <img className="list-image" width="100%" src={img.url} alt="Card image cap" />
                   <CardBody className="text-align-left">
                     <CardText className="text-sub">
@@ -135,11 +139,11 @@ class App extends Component {
                       <small className="mb-2">by. Kulina - Uptown Lunch</small>
                     </CardText>
                     <span className="text-sub"><strong> Rp.  {img.price}</strong></span>
-                    <Button color="danger" className="float-right pl-3 pr-3 pb-1 pt-1 btn-add-bg" >Add +</Button>
+                    <Button color="danger" className="float-right pl-3 pr-3 pb-1 pt-1 btn-add-bg" onClick={() => { this.setState({ show: !this.state.show }) }}>Add +</Button>
                   </CardBody>
                 </Card>
               </li>
-            })}
+            ))}
           </ul>
         </div>
         <div>
@@ -154,10 +158,23 @@ class App extends Component {
               value={this.state.value}
               onChange={this.onChange}
               onSelect={this.onSelect}
-              data={this.state.data}
+              data={this.state.search}
             />
           </Modal>
         </div>
+        {
+          this.state.show  ? <div class="footer m-0 p-1 pl-2 pr-2" >
+            <div className="col-md-10 text-align-left">
+              <p className="m-0">5 Items | Rp. 25.000 </p>
+              <small>Termasuk ongkos kirim</small>
+            </div>
+            <div className="col-md-2 cart-position">
+              <Cart3 color="white" size={15} />
+              <ChevronRight color="white" size={12} />
+            </div>
+          </div>
+            : null
+        }
       </div>
     );
   }
