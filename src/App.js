@@ -105,10 +105,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="row header-select m-0">
-          <div className="top-header"><ArrowLeft color="royalblue" size={20} className="mr-3" />
+          <div className="top-header"><ArrowLeft color="#424749" size={30} className="mr-3" />
             <div >
-              <p className="p-0 m-0 text-left"><small>ALAMAT PENGANTARAN</small></p>
-              <p className="p-0 m-0 text-left" onClick={this.handleOpenModal}><strong>Tokopedia Tower</strong> <ChevronDown color="red" size={15} /> </p>
+              <p className="p-0 m-0 text-left"><small className="text-alamat">ALAMAT PENGANTARAN</small></p>
+              <p className="p-0 m-0 text-left text-select-alamat" onClick={this.handleOpenModal}><strong>Tokopedia Tower</strong> <ChevronDown color="#f9423a" size={15} /> </p>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ class App extends Component {
                   <CardBody className="text-align-left">
                     <CardText className="text-sub">
                       <div className="row m-0">
-                        <div className="text-sub pr-3 pt-1">{img.score}</div>
+                        <div className="text-sub pr-3 pt-1 font-20">{img.score}</div>
                         <StarRatings
                           rating={img.score}
                           starDimension="20px"
@@ -133,13 +133,13 @@ class App extends Component {
                           starRatedColor="#f9234a"
                         />
                       </div>
-                      <p className="mb-0 mt-1">
+                      <p className="mb-0  font-20">
                         <strong>{img.name}</strong>
                       </p>
-                      <small className="mb-2">by. Kulina - Uptown Lunch</small>
+                      <small className="mb-2 font-16">by. Kulina - Uptown Lunch</small>
                     </CardText>
-                    <span className="text-sub"><strong> Rp.  {img.price}</strong></span>
-                    <Button color="danger" className="float-right pl-3 pr-3 pb-1 pt-1 btn-add-bg" onClick={() => { this.setState({ show: !this.state.show }) }}>Add +</Button>
+                    <span className="text-sub font-20"><strong> Rp.  {img.price}</strong></span>
+                    <Button color="danger" className="float-right pl-3 pr-3 pb-1 pt-1 mt-2 btn-add-bg font-20" onClick={() => { this.setState({ show: !this.state.show }) }}>Add +</Button>
                   </CardBody>
                 </Card>
               </li>
@@ -152,8 +152,9 @@ class App extends Component {
             contentLabel="Minimal Modal Example"
             style={customStyles}
           >
-            <button onClick={this.handleCloseModal} className="btn-close-modal" >X</button>
-            <p>Cek makanan yang tersedia di lokasi kamu!</p>
+            <button onClick={this.handleCloseModal} className="btn-close-modal font-20" >X</button>
+            <br></br>
+            <p className="text-search-modal font-20">Cek makanan yang tersedia di lokasi kamu!</p>
             <ReactLiveSearch
               value={this.state.value}
               onChange={this.onChange}
@@ -165,7 +166,7 @@ class App extends Component {
         {
           this.state.show  ? <div class="footer m-0 p-1 pl-2 pr-2" >
             <div className="col-md-10 text-align-left">
-              <p className="m-0">5 Items | Rp. 25.000 </p>
+              <p className="m-0 font-16">5 Items | Rp. 25.000 </p>
               <small>Termasuk ongkos kirim</small>
             </div>
             <div className="col-md-2 cart-position">
